@@ -48,3 +48,37 @@ Get information that is already stored there
 User & permissions management
 *Data Manipulation Language (DML): used for inserting, updating and deleting data from database.
 A query is a set of instructions given to the RDBMS that tells the RDBMS what information you want it to retrieve for you: tons of data in a DB often hidden in a complex schema goal is to only get the data you need.
+Using MySQL and PopSQL:
+To connect, configuration details like host, port, and user credentials are required. -MySQL is a strong and reliable RDBMS. -PopSQL is a query editor that simplifies writing and executing queries with instant results. -Setting up a local MySQL server involves installation, configuration, and creating users. 
+Creating and Modifying Tables -Core SQL data types: INT, VARCHAR, DATE. -CREATE TABLE defines a new table structure. -Syntax and semicolon usage must be correct. -ALTER TABLE allows adding or dropping columns after creation. 
+Inserting Data and Constraints -Schema must be created before inserting data. -INSERT INTO statement is used with VALUES to add rows. -Constraints ensure data integrity: 
+NOT NULL → column cannot be empty. 
+UNIQUE → no duplicate values allowed. -Default values can be set to simplify data entry (e.g., major = ‘undecided’). 
+AUTO_INCREMENT and Data Updates:
+-AUTO_INCREMENT automatically assigns sequential values to primary keys. -Makes inserting data easier (no need to manually set IDs). -Constraints ensure only valid data is stored. -UPDATE → modify existing data. -DELETE → remove records. 
+Ordering and Filtering Data:
+-ORDER BY sorts results based on column values (e.g., salary, student ID). -LIMIT restricts number of results returned. -WHERE filters results based on conditions. 
+Complex Schema Design:
+-Example schema: employees, branches, and clients. -Relationships defined using foreign keys
+Querying Data -SELECT retrieves information from tables. -ORDER BY sorts output. -Aggregation functions summarize data: 
+COUNT → counts rows. 
+AVG → calculates averages. 
+SUM, MIN, MAX also commonly used. 
+Wildcards and Pattern Matching -LIKE operator allows pattern-based searches. -% → matches any number of characters. - _ → matches a single character. - Useful for names, partial matches, or date searches. 
+Combining Data: UNION and JOIN -UNION combines results of two SELECT queries (same number of columns, same data types)             -JOIN merges rows from different tables using common columns. - Types of JOIN: 
+INNER JOIN → only matching rows. 
+LEFT JOIN → all from left table + matches. 
+RIGHT JOIN → all from right table + matches. 
+Nested Queries and Trigger -Nested queries use one query as input for another. -IN keyword filters results from subqueries. -Handling deletions: 
+ON DELETE SET NULL → replaces deleted value with NULL. 
+ON DELETE CASCADE → deletes related rows automatically.
+-Triggers = predefined SQL code executed on events like INSERT, UPDATE, DELETE. 
+Triggers in MySQL -Triggers automate tasks and maintain consistency. 
+-Must change SQL delimiter when creating them. -Can include conditions (IF statements). -Common uses: logging, validations, enforcing rules. 
+Data Modeling and Attributes -Single attribute → only one value (e.g., GPA). -Multi-valued attribute → multiple values (e.g., clubs a student belongs to). -Derived attribute → calculated from other attributes (e.g., honors from GPA). -ER diagrams show relationships and participation: 
+Total participation → all entities involved. 
+Partial participation → only some entities involved. 
+ER Diagram Example (Company Database) -Employee–Branch relationship: 
+One branch → many employees. 
+Employee works for one branch. -Every branch must have a manager (full participation). -Not every employee is a manager (partial participation). -Supervision: one employee supervises many but reports to one. -Client–Branch: every client belongs to a branch, but not every branch has clients. 
+Mapping ER Diagrams to Schemas -Conversion involves systematic steps. -Foreign keys and relationships must be clearly defined. -Arrows can show table relationships but may complicate diagrams. -ER diagrams help convert requirements into working schemas. -Practice improves database design skill
